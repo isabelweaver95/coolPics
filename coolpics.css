@@ -71,12 +71,12 @@ a:hover {
   cursor: pointer;
 }
 
-/* Hide nav by default on mobile */
+/* Hide nav by default on small screens */
 #main-nav {
   display: none;
 }
 
-/* Show nav when "open" class is toggled */
+/* Show nav when open class is added */
 #main-nav.open {
   display: block;
 }
@@ -124,20 +124,20 @@ img {
   margin: 0 auto;
 }
 
-/* Medium screen: Switch to 2 columns at 700px */
+/* Medium screen: 2 columns at 700px */
 @media screen and (min-width: 700px) {
   .gallery {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Large screen: Switch to 3 columns and horizontal nav at 1000px */
+/* Large screen: 3 columns and horizontal nav at 1000px */
 @media screen and (min-width: 1000px) {
   .gallery {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  /* Horizontal nav layout */
+  /* Always show nav on large screens */
   #main-nav {
     display: block;
   }
@@ -153,8 +153,48 @@ img {
     margin: 0;
   }
 
-  /* Hide the menu button */
+  /* Hide menu button on large screens */
   #menu-button {
     display: none;
   }
+}
+/* Modal styles */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+dialog {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* Image inside modal */
+dialog img {
+  display: block;
+  width: 90%;
+  max-height: 100%;
+  margin: 20vh auto;
+  box-shadow: 0 0 10px black;
+  border-radius: 8px;
+}
+
+/* Close button */
+.close-viewer {
+  position: absolute;
+  top: 20vh;
+  right: 5vw;
+  background: white;
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
 }
